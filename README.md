@@ -25,3 +25,11 @@ FoodKart/
 ├── js/
 │   └── script.js        # JavaScript logic (if used)
 └── images/              # Image assets for food items
+
+## 💡 How to Use
+
+1. Download or clone the repository
+2. Open the folder
+3. Launch `index.html` in any modern browser
+
+No installation or setup needed.
