@@ -15,7 +15,7 @@ This project is designed as part of my learning in full stack web development an
 - CSS
 - JavaScript (basic usage)
   
-## File Structure
+```bash
 FoodKart/
 ├── index.html           # Homepage with popular items
 ├── menu.html            # Menu page with full item list
@@ -23,5 +23,5 @@ FoodKart/
 ├── css/
 │   └── style.css        # Main styling
 ├── js/
-│   └── script.js        # JavaScript logic
+│   └── script.js        # JavaScript logic (if used)
 └── images/              # Image assets for food items
