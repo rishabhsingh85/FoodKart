@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Our Menu - FoodKart</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>FoodKart</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="menu.html">Menu</a>
+      <a href="cart.html" id="cart-link">Cart</a>
+      <a href="login.html" id="auth-link">Login</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="search-container">
+      <input 
+        type="text" 
+        id="menu-search" 
+        placeholder="Search food items..." 
+        oninput="searchItems()"
+      >
+    </div>
+    
+    <h2 class="center">Our Menu</h2>
+    <div class="items-container">
+      <div class="item"><img src="images/cheeseburger.jpg"><h3>Cheese Burger</h3><p>₹120</p><button onclick="addToCart('Cheese Burger', 120)">Add to Cart</button></div>
+      <div class="item"><img src="images/vegpizza.jpg"><h3>Veg Pizza</h3><p>₹180</p><button onclick="addToCart('Veg Pizza', 180)">Add to Cart</button></div>
+      <div class="item"><img src="images/fries.jpg"><h3>Fries</h3><p>₹70</p><button onclick="addToCart('Fries', 70)">Add to Cart</button></div>
+      <div class="item"><img src="images/chickenwrap.jpg"><h3>Chicken Wrap</h3><p>₹150</p><button onclick="addToCart('Chicken Wrap', 150)">Add to Cart</button></div>
+      <div class="item"><img src="images/pasta.jpg"><h3>Pasta</h3><p>₹160</p><button onclick="addToCart('Pasta', 160)">Add to Cart</button></div>
+      <div class="item"><img src="images/chowmein.jpg"><h3>Chowmein</h3><p>₹130</p><button onclick="addToCart('Chowmein', 130)">Add to Cart</button></div>
+      <div class="item"><img src="images/vegroll.jpg"><h3>Veg Roll</h3><p>₹90</p><button onclick="addToCart('Veg Roll', 90)">Add to Cart</button></div>
+      <div class="item"><img src="images/momos.jpg"><h3>Momos</h3><p>₹110</p><button onclick="addToCart('Momos', 110)">Add to Cart</button></div>
+      <div class="item"><img src="images/maggi.jpg"><h3>Maggi</h3><p>₹50</p><button onclick="addToCart('Maggi', 50)">Add to Cart</button></div>
+      <div class="item"><img src="images/chickenburger.jpg"><h3>Chicken Burger</h3><p>₹150</p><button onclick="addToCart('Chicken Burger', 150)">Add to Cart</button></div>
+      <div class="item"><img src="images/garlicbread.jpg"><h3>Garlic Bread</h3><p>₹90</p><button onclick="addToCart('Garlic Bread', 90)">Add to Cart</button></div>
+      <div class="item"><img src="images/chickentikka.jpg"><h3>Chicken Tikka</h3><p>₹200</p><button onclick="addToCart('Chicken Tikka', 200)">Add to Cart</button></div>
+      <div class="item"><img src="images/dosa.jpg"><h3>Masala Dosa</h3><p>₹110</p><button onclick="addToCart('Masala Dosa', 110)">Add to Cart</button></div>
+      <div class="item"><img src="images/biryani.jpg"><h3>Veg Biryani</h3><p>₹160</p><button onclick="addToCart('Veg Biryani', 160)">Add to Cart</button></div>
+      <div class="item"><img src="images/noodles.jpg"><h3>Hakka Noodles</h3><p>₹130</p><button onclick="addToCart('Hakka Noodles', 130)">Add to Cart</button></div>
+      <div class="item"><img src="images/sandwich.jpg"><h3>Grilled Sandwich</h3><p>₹80</p><button onclick="addToCart('Grilled Sandwich', 80)">Add to Cart</button></div>
+      <div class="item"><img src="images/samosa.jpg"><h3>Samosa</h3><p>₹40</p><button onclick="addToCart('Samosa', 40)">Add to Cart</button></div>
+      <div class="item"><img src="images/icecream.jpg"><h3>Ice Cream</h3><p>₹60</p><button onclick="addToCart('Ice Cream', 60)">Add to Cart</button></div>
+      <div class="item"><img src="images/paneertikka.jpg"><h3>Paneer Tikka</h3><p>₹180</p><button onclick="addToCart('Paneer Tikka', 180)">Add to Cart</button></div>
+      <div class="item"><img src="images/cholebhature.jpg"><h3>Chole Bhature</h3><p>₹120</p><button onclick="addToCart('Chole Bhature', 120)">Add to Cart</button></div>
+      <div class="item"><img src="images/friedrice.jpg"><h3>Fried Rice</h3><p>₹140</p><button onclick="addToCart('Fried Rice', 140)">Add to Cart</button></div>
+      <div class="item"><img src="images/springroll.jpg"><h3>Spring Roll</h3><p>₹90</p><button onclick="addToCart('Spring Roll', 90)">Add to Cart</button></div>
+      <div class="item"><img src="images/gulabjamun.jpg"><h3>Gulab Jamun</h3><p>₹60</p><button onclick="addToCart('Gulab Jamun', 60)">Add to Cart</button></div>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

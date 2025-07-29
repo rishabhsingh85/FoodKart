@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cart - FoodKart</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body onload="displayCart()">
+  <header>
+    <h1>FoodKart</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="menu.html">Menu</a>
+      <a href="cart.html" id="cart-link">Cart</a>
+      <a href="login.html" id="auth-link">Login</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2 class="center">Your Cart</h2>
+    <div id="cart-items" class="cart-container"></div>
+    <div id="cart-total" class="center bold"></div>
+    <div class="center">
+      <button onclick="clearCart()" class="danger">Empty Cart</button>
+      <button onclick="checkout()" class="success">Checkout</button>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
