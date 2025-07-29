@@ -14,7 +14,7 @@ This project is designed as part of my learning in full stack web development an
 - HTML
 - CSS
 - JavaScript (basic usage)
-- 
+  
 ## File Structure
 FoodKart/
 ├── index.html           # Homepage with popular items
