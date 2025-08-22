@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Payment - FoodKart</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body onload="loadPayment()">
+  <header>
+    <h1>FoodKart</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="menu.html">Menu</a>
+      <a href="cart.html" id="cart-link">Cart</a>
+      <a href="login.html" id="auth-link">Login</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2 class="center">Payment</h2>
+    
+    <div class="payment-container">
+      <div class="order-summary">
+        <h3>Order Summary</h3>
+        <div id="payment-items"></div>
+        <div id="payment-total" class="bold"></div>
+      </div>
+      
+      <div class="payment-form">
+        <h3>Delivery Address</h3>
+        <form id="address-form">
+          <input type="text" id="full-name" placeholder="Full Name" required>
+          <input type="tel" id="phone" placeholder="Phone Number" required>
+          <textarea id="address" placeholder="Full Address" rows="3" required></textarea>
+          <input type="text" id="city" placeholder="City" required>
+          <input type="text" id="pincode" placeholder="Pincode" required>
+        </form>
+        
+        <h3>Payment Method</h3>
+        <div class="payment-options">
+          <div class="payment-option active" id="card-option" onclick="selectPayment('card')">
+            <span>Credit/Debit Card</span>
+          </div>
+          <div class="payment-option" id="upi-option" onclick="selectPayment('upi')">
+            <span>UPI</span>
+          </div>
+          <div class="payment-option" id="netbanking-option" onclick="selectPayment('netbanking')">
+            <span>Net Banking</span>
+          </div>
+          <div class="payment-option" id="cod-option" onclick="selectPayment('cod')">
+            <span>Cash on Delivery</span>
+          </div>
+        </div>
+        
+        <div id="card-payment" class="payment-details">
+          <form id="card-form">
+            <input type="text" id="card-number" placeholder="Card Number" required>
+            <input type="text" id="card-name" placeholder="Name on Card" required>
+            <div class="form-row">
+              <input type="text" id="expiry" placeholder="MM/YY" required>
+              <input type="text" id="cvv" placeholder="CVV" required>
+            </div>
+          </form>
+        </div>
+        
+        <div id="upi-payment" class="payment-details" style="display:none">
+          <input type="text" id="upi-id" placeholder="UPI ID" required>
+        </div>
+        
+        <div id="netbanking-payment" class="payment-details" style="display:none">
+          <select id="bank-select" required>
+            <option value="">Select Bank</option>
+            <option value="sbi">State Bank of India</option>
+            <option value="hdfc">HDFC Bank</option>
+            <option value="icici">ICICI Bank</option>
+            <option value="axis">Axis Bank</option>
+          </select>
+        </div>
+        
+        <div id="cod-payment" class="payment-details" style="display:none">
+          <p>Pay with cash when your order is delivered.</p>
+        </div>
+        
+        <div class="center" style="margin-top: 20px;">
+          <button onclick="placeOrder()" class="success">Place Order</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
