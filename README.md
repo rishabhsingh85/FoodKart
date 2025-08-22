@@ -35,3 +35,41 @@ FoodKart/
 3. Launch `index.html` in any modern browser
 
 No installation or setup needed.
+
+
+# 🍔 FoodKart – Online Food Ordering Website
+
+FoodKart is a simple online food ordering website with pages for homepage, menu, cart, and payment.
+
+---
+
+## 📖 Project Progress Summary
+
+### 🔹 Phase 1: Project Initialization
+- Set up folder structure
+- Created `index.html` (homepage with popular items)
+
+### 🔹 Phase 2: Menu Page Development
+- Added `menu.html` with full menu list
+- Linked homepage → menu navigation
+
+### 🔹 Phase 3: Cart Page Implementation
+- Created `cart.html` for selected items
+- Navigation between pages added
+
+### 🔹 Phase 4: Styling & Assets
+- CSS for styling
+- Images folder added
+
+### 🔹 Phase 5: JavaScript Integration
+- Basic interactivity in `script.js`
+
+### 🔹 Phase 6: Payment Page
+- Created `payment.html`
+- Linked cart → payment page
+
+---
+
+✅ **Current Flow:** Homepage → Menu → Cart → Payment  
+🚀 **Next Steps:** Add backend, cart logic, and payment gateway integration.
+
