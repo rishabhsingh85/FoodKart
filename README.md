@@ -20,11 +20,13 @@ FoodKart/
 ├── index.html           # Homepage with popular items
 ├── menu.html            # Menu page with full item list
 ├── cart.html            # Cart page
+├── payment.html         # Payment page
 ├── css/
 │   └── style.css        # Main styling
 ├── js/
 │   └── script.js        # JavaScript logic (if used)
 └── images/              # Image assets for food items
+
 
 ## 💡 How to Use
 
