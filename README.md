@@ -37,12 +37,6 @@ FoodKart/
 No installation or setup needed.
 
 
-# 🍔 FoodKart – Online Food Ordering Website
-
-FoodKart is a simple online food ordering website with pages for homepage, menu, cart, and payment.
-
----
-
 ## 📖 Project Progress Summary
 
 ### 🔹 Phase 1: Project Initialization
