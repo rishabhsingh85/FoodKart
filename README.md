@@ -66,3 +66,16 @@ No installation or setup needed.
 
 ### Cart Page
 <img width="1901" height="879" alt="Image" src="https://github.com/user-attachments/assets/a71fe81b-1eab-4930-9d1e-fa3d6fd6cd0e" />
+
+
+FoodKart/
+├── index.html           # Homepage with popular items
+├── menu.html            # Menu page with full item list
+├── cart.html            # Cart page
+├── payment.html         # Payment page
+├── css/
+│   └── style.css        # Main styling
+├── js/
+│   └── script.js        # JavaScript logic (if used)
+└── images/              # Image assets for food items
+
