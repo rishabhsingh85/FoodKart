@@ -65,4 +65,4 @@ No installation or setup needed.
 <img width="1887" height="821" alt="Image" src="https://github.com/user-attachments/assets/5674a34f-a9a9-4d27-895d-64268bb48078" />
 
 ### Cart Page
-![FoodKart Cart](screenshot-cart.png)
+<img width="1901" height="879" alt="Image" src="https://github.com/user-attachments/assets/a71fe81b-1eab-4930-9d1e-fa3d6fd6cd0e" />
