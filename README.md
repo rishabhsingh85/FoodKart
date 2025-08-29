@@ -67,7 +67,7 @@ No installation or setup needed.
 ### Cart Page
 <img width="1901" height="879" alt="Image" src="https://github.com/user-attachments/assets/a71fe81b-1eab-4930-9d1e-fa3d6fd6cd0e" />
 
-bash
+```bash
 
 FoodKart/
 ├── index.html           # Homepage with popular items
