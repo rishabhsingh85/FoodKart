@@ -71,7 +71,7 @@ No installation or setup needed.
 ## 📷 Screenshots
 
 ### Homepage
-![FoodKart Homepage](screenshot-home.png)
+<img width="1902" height="886" alt="Image" src="https://github.com/user-attachments/assets/db54f626-9e74-4412-9b7a-7387bb67a04b" />
 
 ### Menu Page
 ![FoodKart Menu](screenshot-menu.png)
