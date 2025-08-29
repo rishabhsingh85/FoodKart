@@ -62,7 +62,7 @@ No installation or setup needed.
 
 
 ### Menu Page
-![FoodKart Menu](screenshot-menu.png)
+<img width="1887" height="821" alt="Image" src="https://github.com/user-attachments/assets/5674a34f-a9a9-4d27-895d-64268bb48078" />
 
 ### Cart Page
 ![FoodKart Cart](screenshot-cart.png)
