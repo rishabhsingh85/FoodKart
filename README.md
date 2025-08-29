@@ -67,3 +67,14 @@ No installation or setup needed.
 ✅ **Current Flow:** Homepage → Menu → Cart → Payment  
 🚀 **Next Steps:** Add backend, cart logic, and payment gateway integration.
 
+
+## 📷 Screenshots
+
+### Homepage
+![FoodKart Homepage](screenshot-home.png)
+
+### Menu Page
+![FoodKart Menu](screenshot-menu.png)
+
+### Cart Page
+![FoodKart Cart](screenshot-cart.png)
