@@ -68,6 +68,6 @@ No installation or setup needed.
 🚀 **Next Steps:** Add backend, cart logic, and payment gateway integration.
 
 
-# 📷 Screenshots
+## Screenshots 📷
 
 <img width="1902" height="886" alt="Image" src="https://github.com/user-attachments/assets/db54f626-9e74-4412-9b7a-7387bb67a04b" />
