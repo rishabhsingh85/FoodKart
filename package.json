@@ -1,0 +1,23 @@
+{
+  "name": "foodkart",
+  "version": "1.0.0",
+  "description": "FoodKart is a simple and clean web-based food ordering platform built using basic HTML, CSS, and JavaScript. The website lets users view popular food items, explore the full menu, and access a separate cart page to manage selected items.",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rishabhsingh85/FoodKart.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rishabhsingh85/FoodKart/issues"
+  },
+  "homepage": "https://github.com/rishabhsingh85/FoodKart#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
