@@ -17,11 +17,21 @@ This project is designed as part of my learning in full stack web development an
 
 ## 💡 How to Use
 
-1. Download or clone the repository
-2. Open the folder
-3. Launch `index.html` in any modern browser
+### Option 1: Frontend Only
+1. Download or clone the repository  
+2. Open the folder  
+3. Launch `index.html` directly in any modern browser  
 
-No installation or setup needed.
+No backend features will work in this mode (only static pages).
+
+### Option 2: With Backend (Recommended)
+1. Install [Node.js](https://nodejs.org/)  
+2. Navigate to the project folder in terminal  
+3. Run the following commands:  
+   ```bash
+   npm install
+   node server.js
+
 
 
 ## 📖 Project Progress Summary
@@ -49,10 +59,17 @@ No installation or setup needed.
 - Created `payment.html`
 - Linked cart → payment page
 
+### 🔹 Phase 7: Backend Setup
+- Initialized Node.js with `npm init`
+- Installed Express for backend server
+- Created `server.js` to serve static files
+- Successfully hosted website locally using Node.js
+
+
 ---
 
 ✅ **Current Flow:** Homepage → Menu → Cart → Payment  
-🚀 **Next Steps:** Add backend, cart logic, and payment gateway integration.
+🚀 **Next Steps:** Connect backend with frontend (cart logic, APIs), add database support (MongoDB), and integrate a payment gateway.
 
 
 ## 📷 Screenshots
