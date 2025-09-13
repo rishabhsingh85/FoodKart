@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Cart - FoodKart</title>
+  <title>Your Orders - FoodKart</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body onload="displayCart()">
+<body onload="loadOrders()">
   <header>
     <h1>FoodKart</h1>
     <nav>
@@ -17,13 +17,8 @@
   </header>
 
   <main>
-    <h2 class="center">Your Cart</h2>
-    <div id="cart-items" class="cart-container"></div>
-    <div id="cart-total" class="center bold"></div>
-    <div class="center">
-      <button onclick="clearCart()" class="danger">Empty Cart</button>
-      <button onclick="proceedToPayment()" class="success">Proceed to Payment</button>
-    </div>
+    <h2 class="center">Your Order History</h2>
+    <div id="orders-list" class="orders-container"></div>
   </main>
 
   <script src="script.js"></script>
