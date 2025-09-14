@@ -24,7 +24,7 @@
         <div id="payment-items"></div>
         <div id="payment-total" class="bold"></div>
       </div>
-      
+
       <div class="payment-form">
         <h3>Delivery Address</h3>
         <form id="address-form">
@@ -50,7 +50,7 @@
             <span>Cash on Delivery</span>
           </div>
         </div>
-        
+
         <div id="card-payment" class="payment-details">
           <form id="card-form">
             <input type="text" id="card-number" placeholder="Card Number" required>
@@ -87,6 +87,31 @@
     </div>
   </main>
 
+  <script>
+    function loadPayment() {
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      const itemsDiv = document.getElementById("payment-items");
+      const totalDiv = document.getElementById("payment-total");
+
+      itemsDiv.innerHTML = "";
+      let total = 0;
+
+      if (cart.length === 0) {
+        itemsDiv.innerHTML = "<p>Your cart is empty.</p>";
+        totalDiv.textContent = "";
+        return;
+      }
+
+      cart.forEach(item => {
+        const line = document.createElement("div");
+        line.textContent = `${item.name} - ₹${item.price} × ${item.quantity}`;
+        itemsDiv.appendChild(line);
+        total += item.price * item.quantity;
+      });
+
+      totalDiv.textContent = `Total: ₹${total}`;
+    }
+  </script>
   <script src="script.js"></script>
 </body>
 </html>

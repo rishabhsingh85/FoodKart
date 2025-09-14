@@ -29,7 +29,6 @@ function displayCart() {
   cart.forEach((item, index) => {
     const itemTotal = item.price * (item.quantity || 1);
     total += itemTotal;
-
     const div = document.createElement("div");
     div.className = "cart-item";
     div.innerHTML = `
@@ -44,16 +43,11 @@ function displayCart() {
     `;
     cartItemsDiv.appendChild(div);
   });
-
   cartTotalDiv.textContent = `Total: ₹${total}`;
 }
 
-// NEW FUNCTION: Update item quantity
 function updateQuantity(index, newQuantity) {
-  if (newQuantity < 1) {
-    removeFromCart(index);
-    return;
-  }
+  if (newQuantity < 1) { removeFromCart(index); return; }
   cart[index].quantity = newQuantity;
   localStorage.setItem('cart', JSON.stringify(cart));
   displayCart();
@@ -77,17 +71,16 @@ function clearCart() {
 }
 
 function proceedToPayment() {
-  if (cart.length === 0) {
-    alert("Your cart is empty!");
-    return;
-  }
-  window.location.href = 'payment.html';
+  if (cart.length === 0) { alert("Your cart is empty!"); return; }
+  localStorage.setItem('cart', JSON.stringify(cart));
+  window.location.href = "payment.html";
 }
 
 function loadPayment() {
+  cart = JSON.parse(localStorage.getItem('cart')) || [];
+
   const paymentItemsDiv = document.getElementById("payment-items");
   const paymentTotalDiv = document.getElementById("payment-total");
-
   if (!paymentItemsDiv || !paymentTotalDiv) return;
 
   paymentItemsDiv.innerHTML = "";
@@ -99,12 +92,10 @@ function loadPayment() {
     return;
   }
 
-  cart.forEach((item) => {
+  cart.forEach(item => {
     const div = document.createElement("div");
     div.className = "payment-item";
-    div.innerHTML = `
-      <span>${item.name} - ₹${item.price} × ${item.quantity || 1}</span>
-    `;
+    div.innerHTML = `<span>${item.name} - ₹${item.price} × ${item.quantity || 1}</span>`;
     paymentItemsDiv.appendChild(div);
     total += item.price * (item.quantity || 1);
   });
@@ -113,56 +104,54 @@ function loadPayment() {
 }
 
 function selectPayment(method) {
-  document.querySelectorAll('.payment-option').forEach(option => {
-    option.classList.remove('active');
-  });
+  document.querySelectorAll('.payment-option').forEach(option => option.classList.remove('active'));
+  document.querySelectorAll('.payment-details').forEach(details => details.style.display = 'none');
 
-  document.querySelectorAll('.payment-details').forEach(details => {
-    details.style.display = 'none';
-  });
-  document.getElementById(`${method}-option`).classList.add('active');
-  document.getElementById(`${method}-payment`).style.display = 'block';
+  const allPaymentInputs=document.querySelectorAll('#card-payment input, #upi-payment input, #netbanking-payment select');
+  allPaymentInputs.forEach(i => i.required = false);
+
+  const optionEl=document.getElementById(`${method}-option`);
+  const detailsEl=document.getElementById(`${method}-payment`);
+  if (optionEl) optionEl.classList.add('active');
+  if (detailsEl) detailsEl.style.display = 'block';
+
+  if (method === 'card'){
+    document.getElementById('card-number').required=true;
+    document.getElementById('card-name').required=true;
+    document.getElementById('expiry').required=true;
+    document.getElementById('cvv').required=true;
+  } else if (method === 'upi') {
+    document.getElementById('upi-id').required=true;
+  } else if (method === 'netbanking') {
+    document.getElementById('bank-select').required=true;
+  }
 }
 
-function placeOrder() {
+async function placeOrder() {
   const addressForm = document.getElementById('address-form');
-  if (!addressForm.checkValidity()) {
-    alert('Please fill all delivery address fields correctly.');
-    return;
-  }
-  const activePayment = document.querySelector('.payment-option.active');
-  if (!activePayment) {
-    alert('Please select a payment method.');
-    return;
-  }
+  if (!addressForm) { alert('Address form not found.'); return; }
+  if (!addressForm.checkValidity()) { alert('Please fill all delivery address fields correctly.'); return; }
 
+  const activePayment = document.querySelector('.payment-option.active');
+  if (!activePayment) { alert('Please select a payment method.'); return; }
   const paymentMethod = activePayment.id.replace('-option', '');
 
   if (paymentMethod === 'card') {
     const cardForm = document.getElementById('card-form');
-    if (!cardForm.checkValidity()) {
-      alert('Please fill all card details correctly.');
-      return;
-    }
+    if (cardForm && !cardForm.checkValidity()) { alert('Please fill all card details correctly.'); return; }
   } else if (paymentMethod === 'upi') {
     const upiId = document.getElementById('upi-id').value;
-    if (!upiId || !upiId.includes('@')) {
-      alert('Please enter a valid UPI ID.');
-      return;
-    }
+    if (!upiId || !upiId.includes('@')) { alert('Please enter a valid UPI ID.'); return; }
   } else if (paymentMethod === 'netbanking') {
-    const bankSelect = document.getElementById('bank-select');
-    if (!bankSelect.value) {
-      alert('Please select a bank.');
-      return;
-    }
+    const bank = document.getElementById('bank-select').value;
+    if (!bank) { alert('Please select a bank.'); return; }
   }
 
-  const order = {
-    id: Date.now(),
-    items: [...cart],
-    total: cart.reduce((sum, item) => sum + (item.price * (item.quantity || 1)), 0),
-    date: new Date().toLocaleString(),
+  const items = JSON.parse(localStorage.getItem('cart')) || [];
+  if (!items || items.length === 0) { alert('Your cart is empty.'); return; }
+
+  const orderPayload = {
+    items: items,
     address: {
       name: document.getElementById('full-name').value,
       phone: document.getElementById('phone').value,
@@ -170,62 +159,99 @@ function placeOrder() {
       city: document.getElementById('city').value,
       pincode: document.getElementById('pincode').value
     },
-    paymentMethod: paymentMethod,
-    status: 'Delivered' // For demo purposes
+    paymentMethod: paymentMethod
   };
 
-  let orders = JSON.parse(localStorage.getItem('orders')) || [];
-  orders.push(order);
-  localStorage.setItem('orders', JSON.stringify(orders));
-
-  cart = [];
-  localStorage.setItem('cart', JSON.stringify(cart));
-  updateCartCount();
-
-  alert(`Order placed successfully! Your order ID is ${order.id}. Total: ₹${order.total}`);
-
-  window.location.href = 'orders.html'; // Redirect to orders page
+  try {
+    const res = await fetch('/api/orders', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(orderPayload)
+    });
+    if (!res.ok) {
+      console.error('Server returned', res.status);
+      alert('Server error. Please try again later.');
+      return;
+    }
+    const data = await res.json();
+    if (data && data.success) {
+      cart = [];
+      localStorage.setItem('cart', JSON.stringify(cart));
+      updateCartCount();
+      alert(`Order placed successfully! Your order ID is ${data.id}. Total: ₹${data.total}`);
+      window.location.href = 'orders.html';
+    } else {
+      console.error('Unexpected response:', data);
+      alert('Something went wrong. Please try again.');
+    }
+  } catch (err) {
+    console.error(err);
+    alert('Server error. Please try again later.');
+  }
 }
 
-// NEW FUNCTION: Load and display order history
 function loadOrders() {
   const ordersListDiv = document.getElementById('orders-list');
   if (!ordersListDiv) return;
 
-  const orders = JSON.parse(localStorage.getItem('orders')) || [];
-  const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+  fetch('/api/orders')
+    .then(res => res.json())
+    .then(allOrders => {
+      const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+      if (!currentUser) {
+        ordersListDiv.innerHTML = '<p class="center">Please login to see your orders.</p>';
+        return;
+      }
 
-  // Simple filter: only show orders for the logged-in user
-  const userOrders = orders.filter(order => 
-    order.address && order.address.name === currentUser?.name
-  );
+      const userOrders = allOrders.filter(order => order.address && order.address.name === currentUser.name);
+      if (userOrders.length === 0) {
+        ordersListDiv.innerHTML = '<p class="center">You have no past orders.</p>';
+        return;
+      }
 
-  if (userOrders.length === 0) {
-    ordersListDiv.innerHTML = '<p class="center">You have no past orders.</p>';
-    return;
-  }
+      userOrders.sort((a, b) => new Date(b.date) - new Date(a.date));
 
-  // Sort orders by date (newest first)
-  userOrders.sort((a, b) => new Date(b.date) - new Date(a.date));
+      ordersListDiv.innerHTML = userOrders.map(order => `
+        <div class="order-card">
+          <h3>Order #${order.id} - ${order.date}</h3>
+          <p><strong>Status:</strong> ${order.status}</p>
+          <p><strong>Items:</strong> ${order.items.map(i => `${i.name} (x${i.quantity})`).join(', ')}</p>
+          <p><strong>Total:</strong> ₹${order.total}</p>
+          <p><strong>Address:</strong> ${order.address.address}, ${order.address.city} - ${order.address.pincode}</p>
+          <p><strong>Payment Method:</strong> ${order.paymentMethod}</p>
+        </div>
+      `).join('');
+    })
+    .catch(err => {
+      console.error(err);
+      ordersListDiv.innerHTML = "<p>Failed to load order history.</p>";
+    });
+}
 
-  ordersListDiv.innerHTML = userOrders.map(order => `
-    <div class="order-card">
-      <h3>Order #${order.id} - ${order.date}</h3>
-      <p><strong>Status:</strong> ${order.status}</p>
-      <p><strong>Items:</strong> ${order.items.map(item => `${item.name} (x${item.quantity})`).join(', ')}</p>
-      <p><strong>Total:</strong> ₹${order.total}</p>
-      <p><strong>Address:</strong> ${order.address.address}, ${order.address.city} - ${order.address.pincode}</p>
-      <p><strong>Payment Method:</strong> ${order.paymentMethod}</p>
-    </div>
-  `).join('');
+async function clearOrderHistory() {
+    if (!confirm("Are you sure you want to delete all your order history?")) return;
+
+    try {
+        const res = await fetch('/api/orders', { method: 'DELETE' });
+        const data = await res.json();
+
+        if (data.success) {
+            alert("Order history cleared!");
+            document.getElementById('orders-list').innerHTML = "<p class='center'>You have no past orders.</p>";
+        } else {
+            alert("Failed to clear order history.");
+        }
+    } catch (err) {
+        console.error(err);
+        alert("Server error. Please try again later.");
+    }
 }
 
 let currentUser = JSON.parse(localStorage.getItem('currentUser'));
 let users = JSON.parse(localStorage.getItem('users')) || [];
 
 function updateAuthUI() {
-  const authLinks = document.querySelectorAll('#auth-link');
-  authLinks.forEach(link => {
+  document.querySelectorAll('#auth-link').forEach(link => {
     if (currentUser) {
       link.textContent = 'Logout';
       link.href = 'javascript:logout()';
@@ -259,11 +285,8 @@ if (document.getElementById('auth-form')) {
 
     const existingUser = users.find(u => u.email === user.email);
     if (existingUser) {
-      if (existingUser.password === user.password) {
-        login(existingUser);
-      } else {
-        alert("Incorrect password!");
-      }
+      if (existingUser.password === user.password) login(existingUser);
+      else alert('Incorrect password!');
     } else {
       users.push(user);
       localStorage.setItem('users', JSON.stringify(users));
@@ -288,21 +311,23 @@ function logout() {
 
 function searchItems() {
   const searchTerm = document.getElementById('menu-search').value.toLowerCase();
-  const items = document.querySelectorAll('.item');
-
-  items.forEach(item => {
+  document.querySelectorAll('.item').forEach(item => {
     const itemName = item.querySelector('h3').textContent.toLowerCase();
     item.style.display = itemName.includes(searchTerm) ? 'block' : 'none';
   });
 }
 
-updateAuthUI();
-updateCartCount();
-
 function updateCartCount() {
   const count = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
-  const cartLinks = document.querySelectorAll('#cart-link');
-  cartLinks.forEach(link => {
+  document.querySelectorAll('#cart-link').forEach(link => {
     link.textContent = count > 0 ? `Cart (${count})` : 'Cart';
   });
 }
+
+window.onload = function() {
+  updateAuthUI();
+  updateCartCount();
+  if (document.getElementById('cart-items')) displayCart();
+  if (document.getElementById('orders-list')) loadOrders();
+  if (document.getElementById('payment-items')) loadPayment();
+};

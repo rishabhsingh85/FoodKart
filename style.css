@@ -1,11 +1,11 @@
-body {
+body{
   font-family: Arial;
   margin: 0;
   padding: 0;
   background-color: #f8f9fa;
 }
 
-header {
+header{
   background: #ff4d4d;
   padding: 15px 20px;
   color: white;
@@ -13,7 +13,7 @@ header {
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-nav {
+nav{
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -21,7 +21,7 @@ nav {
   margin-top: 10px;
 }
 
-nav a {
+nav a{
   color: white;
   text-decoration: none;
   padding: 8px 15px;
@@ -29,16 +29,16 @@ nav a {
   transition: background-color 0.3s;
 }
 
-nav a:hover {
+nav a:hover{
   background-color: rgba(255, 255, 255, 0.2);
 }
 
-.center {
+.center{
   text-align: center;
   margin: 20px 0;
 }
 
-.items-container {
+.items-container{
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 20px;
@@ -47,7 +47,7 @@ nav a:hover {
   margin: 0 auto;
 }
 
-.item {
+.item{
   border: 1px solid #ddd;
   padding: 15px;
   text-align: center;
@@ -57,19 +57,19 @@ nav a:hover {
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.item:hover {
+.item:hover{
   transform: translateY(-5px);
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
-.item img {
+.item img{
   width: 100%;
   height: 150px;
   object-fit: cover;
   border-radius: 5px;
 }
 
-button {
+button{
   padding: 8px 16px;
   background: #ff4d4d;
   color: white;
@@ -80,17 +80,17 @@ button {
   transition: background-color 0.3s;
 }
 
-button:hover {
+button:hover{
   background: #ff3333;
 }
 
-.cart-container {
+.cart-container{
   padding: 20px;
   max-width: 800px;
   margin: 0 auto;
 }
 
-.cart-item {
+.cart-item{
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -102,13 +102,13 @@ button:hover {
   box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
-.cart-item-controls {
+.cart-item-controls{
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-.cart-item-controls button {
+.cart-item-controls button{
   width: 30px;
   height: 30px;
   padding: 0;
@@ -118,29 +118,29 @@ button:hover {
   margin: 0;
 }
 
-.item-quantity {
+.item-quantity{
   font-weight: bold;
   min-width: 20px;
   text-align: center;
 }
 
-.item-name {
+.item-name{
   flex-grow: 1;
   margin: 0 15px;
 }
 
-.item-price {
+.item-price{
   font-weight: bold;
   margin-right: 15px;
 }
 
-.bold {
+.bold{
   font-weight: bold;
   font-size: 1.2em;
   margin: 20px 0;
 }
 
-.auth-container, .profile-container {
+.auth-container, .profile-container{
   max-width: 400px;
   margin: 20px auto;
   padding: 20px;
@@ -150,7 +150,7 @@ button:hover {
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
-input, textarea, select {
+input, textarea, select{
   width: 100%;
   padding: 12px;
   margin: 10px 0;
@@ -160,54 +160,54 @@ input, textarea, select {
   font-family: Arial;
 }
 
-input:focus, textarea:focus, select:focus {
+input:focus, textarea:focus, select:focus{
   outline: none;
   border-color: #ff4d4d;
-  box-shadow: 0 0 0 2px rgba(255, 77, 77, 0.2);
+  box-shadow: 0 0 0 2px rgba(255,77,77,0.2);
 }
 
-#user-details div {
+#user-details div{
   padding: 10px;
   border-bottom: 1px solid #eee;
 }
 
-button.success {
+button.success{
   background: #4CAF50;
 }
 
-button.success:hover {
+button.success:hover{
   background: #45a049;
 }
 
-button.danger {
+button.danger{
   background: #f44336;
 }
 
-button.danger:hover {
+button.danger:hover{
   background: #da190b;
 }
 
-.search-container {
+.search-container{
   max-width: 500px;
   margin: 20px auto 10px;
   padding: 0 20px;
 }
 
-#menu-search {
+#menu-search{
   width: 100%;
   padding: 12px 20px;
   border: 2px solid #ff4d4d;
   border-radius: 30px;
   font-size: 16px;
-  box-shadow: 0 2px 8px rgba(255, 77, 77, 0.2);
+  box-shadow: 0 2px 8px rgba(255,77,77,0.2);
 }
 
-#menu-search:focus {
+#menu-search:focus{
   outline: none;
-  box-shadow: 0 2px 12px rgba(255, 77, 77, 0.3);
+  box-shadow: 0 2px 12px rgba(255,77,77,0.3);
 }
 
-.payment-container {
+.payment-container{
   display: flex;
   flex-wrap: wrap;
   gap: 30px;
@@ -216,7 +216,7 @@ button.danger:hover {
   margin: 0 auto;
 }
 
-.order-summary, .payment-form {
+.order-summary, .payment-form{
   flex: 1;
   min-width: 300px;
   border: 1px solid #ddd;
@@ -226,19 +226,19 @@ button.danger:hover {
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
-.payment-item {
+.payment-item{
   padding: 10px 0;
   border-bottom: 1px solid #eee;
 }
 
-.payment-options {
+.payment-options{
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
   margin-bottom: 20px;
 }
 
-.payment-option {
+.payment-option{
   padding: 12px 15px;
   border: 2px solid #ddd;
   border-radius: 6px;
@@ -246,38 +246,38 @@ button.danger:hover {
   transition: all 0.3s;
 }
 
-.payment-option.active {
+.payment-option.active{
   border-color: #ff4d4d;
-  background-color: rgba(255, 77, 77, 0.1);
+  background-color: rgba(255,77,77,0.1);
 }
 
-.payment-option:hover {
+.payment-option:hover{
   border-color: #ff4d4d;
 }
 
-.payment-details {
+.payment-details{
   padding: 15px;
   background-color: #f9f9f9;
   border-radius: 6px;
   margin-bottom: 15px;
 }
 
-.form-row {
+.form-row{
   display: flex;
   gap: 10px;
 }
 
-.form-row input {
+.form-row input{
   flex: 1;
 }
 
-.orders-container {
+.orders-container{
   padding: 20px;
   max-width: 800px;
   margin: 0 auto;
 }
 
-.order-card {
+.order-card{
   border: 1px solid #ddd;
   padding: 20px;
   margin-bottom: 20px;
@@ -286,35 +286,35 @@ button.danger:hover {
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
-.order-card h3 {
+.order-card h3{
   margin-top: 0;
   color: #ff4d4d;
   border-bottom: 1px solid #eee;
   padding-bottom: 10px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 768px){
   .payment-container {
     flex-direction: column;
   }
   
-  .cart-item {
+  .cart-item{
     flex-direction: column;
     align-items: flex-start;
     gap: 10px;
   }
   
-  .cart-item-controls {
+  .cart-item-controls{
     align-self: center;
   }
   
-  nav {
+  nav{
     flex-direction: column;
     align-items: center;
     gap: 10px;
   }
   
-  nav a {
+  nav a{
     width: 100%;
     text-align: center;
     box-sizing: border-box;
